@@ -333,8 +333,8 @@ class ClientController extends Controller
      *      description="DELETE CLIENT BY ID",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
-     *          name="page",
-     *          in="query",
+     *          name="id",
+     *          in="path",
      *          required=true,
      *          @OA\Schema(
      *              type="integer"
