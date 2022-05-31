@@ -8,7 +8,7 @@
 
 <ul>
     <li><h2><code>composer install or composer update</code></h2></li>
-    <li><h2>créer un fichier .env dont le contenu se trouve ci-dessous</h2></li>
+    <li><h2>créer un fichier .env dont le contenu se trouve ci-dessous (Adapter en fonction de votre environnement)</h2></li>
     <li><h2><code>php artisan migrate</code></h2></li>
     <li><h2><code>php artisan passport:install</code></h2></li>
     <li><h2><code>php artisan l5-swagger:generate</code></h2></li>
