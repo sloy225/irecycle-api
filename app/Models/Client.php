@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 /**
  * @method static paginate(int $int)
@@ -54,7 +55,8 @@ class Client extends Model
     public function getClientById($id): array
     {
         try {
-            return $this->success(true, Client::find($id));
+            $client = Client::findOrFail($id);
+            return $client ? $this->success(true, $client) : $this->error(false, $client);
         }catch (Exception $e){
             return $this->error(false, $e);
         }
@@ -108,13 +110,13 @@ class Client extends Model
         }
     }
 
+    /**
+     * @throws Throwable
+     */
     public function deleteClient($id): array {
         try {
-            $client = Client::query()->find($id)->delete();
-            if ($client){
-                return $this->success(true, "Opération éffectuée");
-            }
-            return $this->error(false, 'Action failed');
+            $client = Client::query()->find($id)->deleteOrFail();
+            return $client ? $this->success(true) : $this->error(false, $client);
         }catch (Exception $e){
             return $this->error(false, $e);
         }

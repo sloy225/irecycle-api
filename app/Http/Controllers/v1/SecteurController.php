@@ -17,8 +17,8 @@ class SecteurController extends Controller
      */
 
     /**
-     * @OA\Get(
-     *      path="/secteur",
+     * @OA\Get (
+     *      path="/v1/secteur",
      *      operationId="getAllSecteur",
      *      tags={"SECTEUR"},
      *      summary="GET SECTEUR",
@@ -91,7 +91,7 @@ class SecteurController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/secteur",
+     *      path="/v1/secteur",
      *      operationId="createSecteur",
      *      tags={"SECTEUR"},
      *      summary="CREATE Secteur",
@@ -175,7 +175,7 @@ class SecteurController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/secteur/{id}",
+     *      path="/v1/secteur/{id}",
      *      operationId="getSecteurById",
      *      tags={"SECTEUR"},
      *      summary="GET SECTEUR BY ID",
@@ -257,7 +257,7 @@ class SecteurController extends Controller
 
     /**
      * @OA\Put (
-     *      path="/secteur",
+     *      path="/v1/secteur",
      *      operationId="updateSecteur",
      *      tags={"SECTEUR"},
      *      summary="UPDATE SECTEUR BY ID",
@@ -342,7 +342,7 @@ class SecteurController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/secteur/{id}",
+     *      path="/v1/secteur/{id}",
      *      operationId="deleteSecteur",
      *      tags={"SECTEUR"},
      *      summary="DELETE SECTEUR BY ID",

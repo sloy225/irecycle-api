@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\ClientController;
 use App\Http\Controllers\v1\SecteurController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
@@ -15,15 +16,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/authenticate', [Controller::class,'authenticate'])->name('login.api');
-Route::post('/register', [Controller::class,'register'])->name('register.api');
+Route::prefix('v1')->group(function(){
 
-Route::middleware('auth:api')->group(function () {
-    Route::prefix('secteur')->group(function(){
-        Route::get('/',[SecteurController::class, 'index']);
-        Route::get('/{id}',[SecteurController::class, 'show']);
-        Route::put('/', [SecteurController::class, 'update']);
-        Route::post('/', [SecteurController::class, 'store']);
-        Route::delete('/{id}', [SecteurController::class, 'destroy']);
+    Route::post('/authenticate', [Controller::class,'authenticate'])->name('login.api');
+
+    Route::middleware('auth:api')->group(function () {
+
+        Route::post('/register', [Controller::class,'register'])->name('register.api');
+
+        Route::prefix('secteur')->group(function(){
+            Route::controller(SecteurController::class)->group(function () {
+                Route::get('/', 'index');
+                Route::get('/{id}', 'show');
+                Route::put('/', 'update');
+                Route::post('/', 'store');
+                Route::delete('/{id}', 'destroy');
+            });
+        });
+
+        Route::prefix('client')->group(function(){
+            Route::controller(ClientController::class)->group(function () {
+                Route::get('/', 'index');
+                Route::get('/{id}', 'show');
+                Route::put('/', 'update');
+                Route::post('/', 'store');
+                Route::delete('/{id}', 'destroy');
+            });
+        });
+
     });
 });

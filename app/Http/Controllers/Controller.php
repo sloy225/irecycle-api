@@ -107,7 +107,7 @@ class Controller extends BaseController
 
     /**
      * @OA\Post(
-     * path="/authenticate",
+     * path="/v1/authenticate",
      * operationId="loginApi",
      * tags={"OAuth"},
      * summary="Authentification",
@@ -137,7 +137,7 @@ class Controller extends BaseController
 
     /**
      * @OA\Post(
-     *     path="/register",
+     *     path="/v1/register",
      *     operationId="Inscription",
      *     tags={"OAuth"},
      *     summary="Inscription de l'utilisateur",

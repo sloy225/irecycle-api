@@ -18,7 +18,7 @@ class ClientController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/secteur",
+     *      path="/v1/client",
      *      operationId="getAllClient",
      *      tags={"CLIENT"},
      *      summary="GET CLIENT",
@@ -94,7 +94,7 @@ class ClientController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/secteur",
+     *      path="/v1/client",
      *      operationId="createClient",
      *      tags={"CLIENT"},
      *      summary="CREATE Client",
@@ -107,8 +107,8 @@ class ClientController extends Controller
      *                  @OA\Property(property="first_name", type="string"),
      *                  @OA\Property(property="last_name", type="string"),
      *                  @OA\Property(property="email", type="string"),
-     *                  @OA\Property(property="contact", type="string")
-     *                  @OA\Property(property="password", type="string")
+     *                  @OA\Property(property="contact", type="string"),
+     *                  @OA\Property(property="password", type="string"),
      *                  @OA\Property(property="location", type="string")
      *              ),
      *      ),
@@ -135,7 +135,7 @@ class ClientController extends Controller
      *                              @OA\Property(property="number_of_point", type="string"),
      *                              @OA\Property(property="created_at", type="string"),
      *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string"),
+     *                              @OA\Property(property="deleted_at", type="string")
      *                          ),
      *                      ),
      *                  ),
@@ -183,7 +183,7 @@ class ClientController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/secteur/{id}",
+     *      path="/v1/client/{id}",
      *      operationId="getClientById",
      *      tags={"CLIENT"},
      *      summary="GET CLIENT BY ID",
@@ -268,7 +268,7 @@ class ClientController extends Controller
 
     /**
      * @OA\Put (
-     *      path="/secteur",
+     *      path="/v1/client",
      *      operationId="updateClient",
      *      tags={"CLIENT"},
      *      summary="UPDATE CLIENT BY ID",
@@ -282,8 +282,8 @@ class ClientController extends Controller
      *                  @OA\Property(property="first_name", type="string"),
      *                  @OA\Property(property="last_name", type="string"),
      *                  @OA\Property(property="email", type="string"),
-     *                  @OA\Property(property="contact", type="string")
-     *                  @OA\Property(property="password", type="string")
+     *                  @OA\Property(property="contact", type="string"),
+     *                  @OA\Property(property="password", type="string"),
      *                  @OA\Property(property="location", type="string")
      *              ),
      *      ),
@@ -310,7 +310,7 @@ class ClientController extends Controller
      *                              @OA\Property(property="number_of_point", type="string"),
      *                              @OA\Property(property="created_at", type="string"),
      *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string"),
+     *                              @OA\Property(property="deleted_at", type="string")
      *                          ),
      *                      ),
      *                  ),
@@ -358,7 +358,7 @@ class ClientController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/secteur/{id}",
+     *      path="/v1/client/{id}",
      *      operationId="deleteClient",
      *      tags={"CLIENT"},
      *      summary="DELETE CLIENT BY ID",

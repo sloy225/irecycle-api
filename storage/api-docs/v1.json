@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://irecycle-api.test/api",
+            "url": "http://irecycle-api.test/api/v1",
             "description": "I-Recycle Service Server"
         }
     ],
@@ -88,7 +88,505 @@
                 ]
             }
         },
-        "/secteur": {
+        "/v1/client": {
+            "get": {
+                "tags": [
+                    "CLIENT"
+                ],
+                "summary": "GET CLIENT",
+                "description": "GET CLIENT",
+                "operationId": "getAllClient",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "first_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "last_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "email": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "password": {
+                                                                    "type": "string"
+                                                                },
+                                                                "token": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_point": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "CLIENT"
+                ],
+                "summary": "UPDATE CLIENT BY ID",
+                "description": "UPDATE CLIENT",
+                "operationId": "updateClient",
+                "requestBody": {
+                    "description": "Transmettre les informations",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "first_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "last_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "email": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "password": {
+                                                                    "type": "string"
+                                                                },
+                                                                "token": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_point": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "CLIENT"
+                ],
+                "summary": "CREATE Client",
+                "description": "CREATE Client",
+                "operationId": "createClient",
+                "requestBody": {
+                    "description": "Transmettre les informations",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "first_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "last_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "email": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "password": {
+                                                                    "type": "string"
+                                                                },
+                                                                "token": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_point": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/client/{id}": {
+            "get": {
+                "tags": [
+                    "CLIENT"
+                ],
+                "summary": "GET CLIENT BY ID",
+                "description": "GET CLIENT",
+                "operationId": "getClientById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "first_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "last_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "email": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "password": {
+                                                                    "type": "string"
+                                                                },
+                                                                "token": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_point": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "deleted_at": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "CLIENT"
+                ],
+                "summary": "DELETE CLIENT BY ID",
+                "description": "DELETE CLIENT BY ID",
+                "operationId": "deleteClient",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opération éffectuée",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/secteur": {
             "get": {
                 "tags": [
                     "SECTEUR"
@@ -398,7 +896,7 @@
                 ]
             }
         },
-        "/secteur/{id}": {
+        "/v1/secteur/{id}": {
             "get": {
                 "tags": [
                     "SECTEUR"
