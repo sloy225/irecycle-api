@@ -1,0 +1,567 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentation des APIs d'I-Recycle",
+        "description": "Implementation avec Swagger par #DEV_PEOPLE",
+        "contact": {
+            "email": "mianahissan@protonmail.com"
+        },
+        "license": {
+            "name": "I-Recycle Protected",
+            "url": "https://www.devpeopleci.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://irecycle-api.test/api",
+            "description": "I-Recycle Service Server"
+        }
+    ],
+    "paths": {
+        "/authenticate": {
+            "post": {
+                "tags": [
+                    "OAuth"
+                ],
+                "summary": "Authentification",
+                "description": "OAuthLogin",
+                "operationId": "loginApi",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "example": "email"
+                                    },
+                                    "password": {
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Connexion Réussie"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "OAuth"
+                ],
+                "summary": "Inscription de l'utilisateur",
+                "description": "Informations de l'utilisateurs",
+                "operationId": "Inscription",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {},
+                                    "email": {},
+                                    "password": {}
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Opération Réussie"
+                    },
+                    "200": {
+                        "description": "Inscription réussie"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/secteur": {
+            "get": {
+                "tags": [
+                    "SECTEUR"
+                ],
+                "summary": "GET SECTEUR",
+                "description": "GET SECTEUR",
+                "operationId": "getAllSecteur",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "commune_id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "responsable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "update_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "delete_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "commune_name": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "SECTEUR"
+                ],
+                "summary": "UPDATE SECTEUR BY ID",
+                "description": "UPDATE SECTEUR",
+                "operationId": "updateSecteur",
+                "requestBody": {
+                    "description": "Transmettre les informations",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "commune_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "responsable": {
+                                        "type": "string"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "commune_id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "responsable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "update_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "delete_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "commune_name": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "SECTEUR"
+                ],
+                "summary": "CREATE Secteur",
+                "description": "CREATE Secteur",
+                "operationId": "createSecteur",
+                "requestBody": {
+                    "description": "Transmettre les informations",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "commune_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "responsable": {
+                                        "type": "string"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "commune_id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "responsable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "update_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "delete_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "commune_name": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/secteur/{id}": {
+            "get": {
+                "tags": [
+                    "SECTEUR"
+                ],
+                "summary": "GET SECTEUR BY ID",
+                "description": "GET SECTEUR",
+                "operationId": "getSecteurById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "object": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "commune_id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "responsable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "contact": {
+                                                                    "type": "string"
+                                                                },
+                                                                "update_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "delete_at": {
+                                                                    "type": "string"
+                                                                },
+                                                                "commune_name": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "SECTEUR"
+                ],
+                "summary": "DELETE SECTEUR BY ID",
+                "description": "DELETE SECTEUR BY ID",
+                "operationId": "deleteSecteur",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opération éffectuée",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Interdit"
+                    },
+                    "400": {
+                        "description": "Mauvaise demande"
+                    },
+                    "404": {
+                        "description": "pas trouvé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            },
+            "passport": {
+                "type": "oauth2",
+                "description": "Passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://irecycle-api.test/oauth/authorize",
+                        "tokenUrl": "http://irecycle-api.test/oauth/token",
+                        "refreshUrl": "http://irecycle-api.test/token/refresh",
+                        "scopes": []
+                    }
+                }
+            }
+        }
+    }
+}
