@@ -180,7 +180,7 @@ class Controller extends BaseController
         $accessToken =$user->createToken('authToken')->accessToken;
 
         return $this->sendResponse(
-            ["user"=>$user,"access_token"=>$accessToken], 'User register successfully.'
+            ["user"=>$user,"access_token"=>$accessToken]
         );
     }
 }

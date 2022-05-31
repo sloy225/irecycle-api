@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string("email",60)->unique();
             $table->string("contact",60)->unique();
             $table->text("password");
-            $table->text("token");
-            $table->string("location", 60);
-            $table->integer("number_of_point");
+            $table->text("token")->nullable();
+            $table->string("location", 60)->nullable();
+            $table->integer("number_of_point")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
