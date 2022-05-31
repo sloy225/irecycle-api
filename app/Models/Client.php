@@ -106,7 +106,7 @@ class Client extends Model
             }
             return $this->error(false, $result ?? $validator->failed());
         }catch (Exception $e){
-            return $this->success(false, $e);
+            return $this->error(false, $e);
         }
     }
 

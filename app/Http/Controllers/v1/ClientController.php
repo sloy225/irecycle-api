@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 class ClientController extends Controller
 {
@@ -30,29 +31,22 @@ class ClientController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="first_name", type="string"),
-     *                              @OA\Property(property="last_name", type="string"),
-     *                              @OA\Property(property="email", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
-     *                              @OA\Property(property="password", type="string"),
-     *                              @OA\Property(property="token", type="string"),
-     *                              @OA\Property(property="number_of_point", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string"),
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="first_name", type="string"),
+     *                      @OA\Property(property="last_name", type="string"),
+     *                      @OA\Property(property="email", type="integer"),
+     *                      @OA\Property(property="contact", type="string"),
+     *                      @OA\Property(property="password", type="string"),
+     *                      @OA\Property(property="token", type="string"),
+     *                      @OA\Property(property="number_of_point", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="updated_at", type="string"),
+     *                      @OA\Property(property="deleted_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -119,29 +113,22 @@ class ClientController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="first_name", type="string"),
-     *                              @OA\Property(property="last_name", type="string"),
-     *                              @OA\Property(property="email", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
-     *                              @OA\Property(property="password", type="string"),
-     *                              @OA\Property(property="token", type="string"),
-     *                              @OA\Property(property="number_of_point", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string")
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="first_name", type="string"),
+     *                      @OA\Property(property="last_name", type="string"),
+     *                      @OA\Property(property="email", type="integer"),
+     *                      @OA\Property(property="contact", type="string"),
+     *                      @OA\Property(property="password", type="string"),
+     *                      @OA\Property(property="token", type="string"),
+     *                      @OA\Property(property="number_of_point", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="updated_at", type="string"),
+     *                      @OA\Property(property="deleted_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -192,8 +179,8 @@ class ClientController extends Controller
      *      description="GET CLIENT",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
-     *          name="page",
-     *          in="query",
+     *          name="id",
+     *          in="path",
      *          required=true,
      *          @OA\Schema(
      *              type="integer"
@@ -205,29 +192,22 @@ class ClientController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="first_name", type="string"),
-     *                              @OA\Property(property="last_name", type="string"),
-     *                              @OA\Property(property="email", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
-     *                              @OA\Property(property="password", type="string"),
-     *                              @OA\Property(property="token", type="string"),
-     *                              @OA\Property(property="number_of_point", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string"),
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="first_name", type="string"),
+     *                      @OA\Property(property="last_name", type="string"),
+     *                      @OA\Property(property="email", type="integer"),
+     *                      @OA\Property(property="contact", type="string"),
+     *                      @OA\Property(property="password", type="string"),
+     *                      @OA\Property(property="token", type="string"),
+     *                      @OA\Property(property="number_of_point", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="updated_at", type="string"),
+     *                      @OA\Property(property="deleted_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -296,29 +276,22 @@ class ClientController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="first_name", type="string"),
-     *                              @OA\Property(property="last_name", type="string"),
-     *                              @OA\Property(property="email", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
-     *                              @OA\Property(property="password", type="string"),
-     *                              @OA\Property(property="token", type="string"),
-     *                              @OA\Property(property="number_of_point", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="updated_at", type="string"),
-     *                              @OA\Property(property="deleted_at", type="string")
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="first_name", type="string"),
+     *                      @OA\Property(property="last_name", type="string"),
+     *                      @OA\Property(property="email", type="integer"),
+     *                      @OA\Property(property="contact", type="string"),
+     *                      @OA\Property(property="password", type="string"),
+     *                      @OA\Property(property="token", type="string"),
+     *                      @OA\Property(property="number_of_point", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="updated_at", type="string"),
+     *                      @OA\Property(property="deleted_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -350,15 +323,6 @@ class ClientController extends Controller
             $this->format
         );
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param $id
-     * @param Client $client
-     * @return JsonResponse
-     */
 
     /**
      * @OA\Delete(
@@ -400,10 +364,18 @@ class ClientController extends Controller
      *      description="pas trouvé"
      *   ),
      *  )
+     *
+     *
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @param Client $client
+     * @return JsonResponse
+     * @throws Throwable
      */
     public function destroy($id,Client $client): JsonResponse
     {
-        $response = $client->updateClientDetails($id);
+        $response = $client->deleteClient($id);
         $client = $this->verifyStatus($response);
         return response()->json(
             $client,

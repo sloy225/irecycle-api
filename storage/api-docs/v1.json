@@ -106,57 +106,46 @@
                                         "status": {
                                             "type": "boolean"
                                         },
-                                        "object": {
+                                        "data": {
                                             "type": "array",
                                             "items": {
                                                 "properties": {
-                                                    "data": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "properties": {
-                                                                "id": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "first_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "last_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "email": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "contact": {
-                                                                    "type": "string"
-                                                                },
-                                                                "password": {
-                                                                    "type": "string"
-                                                                },
-                                                                "token": {
-                                                                    "type": "string"
-                                                                },
-                                                                "number_of_point": {
-                                                                    "type": "string"
-                                                                },
-                                                                "created_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updated_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "deleted_at": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "type": "object"
-                                                        }
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "email": {
+                                                        "type": "integer"
+                                                    },
+                                                    "contact": {
+                                                        "type": "string"
+                                                    },
+                                                    "password": {
+                                                        "type": "string"
+                                                    },
+                                                    "token": {
+                                                        "type": "string"
+                                                    },
+                                                    "number_of_point": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string"
                                                     }
                                                 },
                                                 "type": "object"
                                             }
-                                        },
-                                        "error": {
-                                            "type": "string"
                                         }
                                     },
                                     "type": "object"
@@ -359,57 +348,46 @@
                                         "status": {
                                             "type": "boolean"
                                         },
-                                        "object": {
+                                        "data": {
                                             "type": "array",
                                             "items": {
                                                 "properties": {
-                                                    "data": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "properties": {
-                                                                "id": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "first_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "last_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "email": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "contact": {
-                                                                    "type": "string"
-                                                                },
-                                                                "password": {
-                                                                    "type": "string"
-                                                                },
-                                                                "token": {
-                                                                    "type": "string"
-                                                                },
-                                                                "number_of_point": {
-                                                                    "type": "string"
-                                                                },
-                                                                "created_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updated_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "deleted_at": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "type": "object"
-                                                        }
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "email": {
+                                                        "type": "integer"
+                                                    },
+                                                    "contact": {
+                                                        "type": "string"
+                                                    },
+                                                    "password": {
+                                                        "type": "string"
+                                                    },
+                                                    "token": {
+                                                        "type": "string"
+                                                    },
+                                                    "number_of_point": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string"
                                                     }
                                                 },
                                                 "type": "object"
                                             }
-                                        },
-                                        "error": {
-                                            "type": "string"
                                         }
                                     },
                                     "type": "object"
@@ -447,8 +425,8 @@
                 "operationId": "getClientById",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
+                        "name": "id",
+                        "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -465,57 +443,46 @@
                                         "status": {
                                             "type": "boolean"
                                         },
-                                        "object": {
+                                        "data": {
                                             "type": "array",
                                             "items": {
                                                 "properties": {
-                                                    "data": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "properties": {
-                                                                "id": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "first_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "last_name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "email": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "contact": {
-                                                                    "type": "string"
-                                                                },
-                                                                "password": {
-                                                                    "type": "string"
-                                                                },
-                                                                "token": {
-                                                                    "type": "string"
-                                                                },
-                                                                "number_of_point": {
-                                                                    "type": "string"
-                                                                },
-                                                                "created_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updated_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "deleted_at": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "type": "object"
-                                                        }
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "email": {
+                                                        "type": "integer"
+                                                    },
+                                                    "contact": {
+                                                        "type": "string"
+                                                    },
+                                                    "password": {
+                                                        "type": "string"
+                                                    },
+                                                    "token": {
+                                                        "type": "string"
+                                                    },
+                                                    "number_of_point": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string"
                                                     }
                                                 },
                                                 "type": "object"
                                             }
-                                        },
-                                        "error": {
-                                            "type": "string"
                                         }
                                     },
                                     "type": "object"
@@ -618,22 +585,22 @@
                                                                 "commune_id": {
                                                                     "type": "string"
                                                                 },
-                                                                "name": {
+                                                                "nom_secteur": {
                                                                     "type": "string"
                                                                 },
                                                                 "responsable": {
                                                                     "type": "integer"
                                                                 },
-                                                                "contact": {
+                                                                "contact_secteur": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "update_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "delete_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "commune_name": {
                                                                     "type": "string"
                                                                 }
                                                             },
@@ -692,13 +659,13 @@
                                     "commune_id": {
                                         "type": "string"
                                     },
-                                    "name": {
+                                    "nom_secteur": {
                                         "type": "string"
                                     },
                                     "responsable": {
                                         "type": "string"
                                     },
-                                    "contact": {
+                                    "contact_secteur": {
                                         "type": "string"
                                     }
                                 },
@@ -731,22 +698,22 @@
                                                                 "commune_id": {
                                                                     "type": "string"
                                                                 },
-                                                                "name": {
+                                                                "nom_secteur": {
                                                                     "type": "string"
                                                                 },
                                                                 "responsable": {
                                                                     "type": "integer"
                                                                 },
-                                                                "contact": {
+                                                                "contact_secteur": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "update_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "delete_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "commune_name": {
                                                                     "type": "string"
                                                                 }
                                                             },
@@ -802,13 +769,13 @@
                                     "commune_id": {
                                         "type": "string"
                                     },
-                                    "name": {
+                                    "nom_secteur": {
                                         "type": "string"
                                     },
                                     "responsable": {
                                         "type": "string"
                                     },
-                                    "contact": {
+                                    "contact_secteur": {
                                         "type": "string"
                                     }
                                 },
@@ -906,8 +873,8 @@
                 "operationId": "getSecteurById",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
+                        "name": "id",
+                        "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -938,22 +905,22 @@
                                                                 "commune_id": {
                                                                     "type": "string"
                                                                 },
-                                                                "name": {
+                                                                "nom_secteur": {
                                                                     "type": "string"
                                                                 },
                                                                 "responsable": {
                                                                     "type": "integer"
                                                                 },
-                                                                "contact": {
+                                                                "contact_secteur": {
+                                                                    "type": "string"
+                                                                },
+                                                                "created_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "update_at": {
                                                                     "type": "string"
                                                                 },
                                                                 "delete_at": {
-                                                                    "type": "string"
-                                                                },
-                                                                "commune_name": {
                                                                     "type": "string"
                                                                 }
                                                             },
@@ -1001,8 +968,8 @@
                 "operationId": "deleteSecteur",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
+                        "name": "id",
+                        "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer"

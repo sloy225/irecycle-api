@@ -39,12 +39,12 @@ class SecteurController extends Controller
      *                          @OA\Items(
      *                              @OA\Property(property="id", type="integer"),
      *                              @OA\Property(property="commune_id", type="string"),
-     *                              @OA\Property(property="name", type="string"),
+     *                              @OA\Property(property="nom_secteur", type="string"),
      *                              @OA\Property(property="responsable", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
+     *                              @OA\Property(property="contact_secteur", type="string"),
+     *                              @OA\Property(property="created_at", type="string"),
      *                              @OA\Property(property="update_at", type="string"),
      *                              @OA\Property(property="delete_at", type="string"),
-     *                              @OA\Property(property="commune_name", type="string"),
      *                          ),
      *                      ),
      *                  ),
@@ -97,9 +97,9 @@ class SecteurController extends Controller
      *          description="Transmettre les informations",
      *              @OA\JsonContent(
      *                  @OA\Property(property="commune_id", type="string"),
-     *                  @OA\Property(property="name", type="string"),
+     *                  @OA\Property(property="nom_secteur", type="string"),
      *                  @OA\Property(property="responsable", type="string"),
-     *                  @OA\Property(property="contact", type="string")
+     *                  @OA\Property(property="contact_secteur", type="string")
      *              ),
      *      ),
      *     @OA\Response(
@@ -172,8 +172,8 @@ class SecteurController extends Controller
      *      description="GET SECTEUR",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
-     *          name="page",
-     *          in="query",
+     *          name="id",
+     *          in="path",
      *          required=true,
      *          @OA\Schema(
      *              type="integer"
@@ -194,12 +194,12 @@ class SecteurController extends Controller
      *                          @OA\Items(
      *                              @OA\Property(property="id", type="integer"),
      *                              @OA\Property(property="commune_id", type="string"),
-     *                              @OA\Property(property="name", type="string"),
+     *                              @OA\Property(property="nom_secteur", type="string"),
      *                              @OA\Property(property="responsable", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
+     *                              @OA\Property(property="contact_secteur", type="string"),
+     *                              @OA\Property(property="created_at", type="string"),
      *                              @OA\Property(property="update_at", type="string"),
      *                              @OA\Property(property="delete_at", type="string"),
-     *                              @OA\Property(property="commune_name", type="string"),
      *                          ),
      *                      ),
      *                  ),
@@ -254,9 +254,9 @@ class SecteurController extends Controller
      *              @OA\JsonContent(
      *                  @OA\Property(property="id", type="string"),
      *                  @OA\Property(property="commune_id", type="string"),
-     *                  @OA\Property(property="name", type="string"),
+     *                  @OA\Property(property="nom_secteur", type="string"),
      *                  @OA\Property(property="responsable", type="string"),
-     *                  @OA\Property(property="contact", type="string")
+     *                  @OA\Property(property="contact_secteur", type="string")
      *              ),
      *      ),
      *     @OA\Response(
@@ -274,12 +274,12 @@ class SecteurController extends Controller
      *                          @OA\Items(
      *                              @OA\Property(property="id", type="integer"),
      *                              @OA\Property(property="commune_id", type="string"),
-     *                              @OA\Property(property="name", type="string"),
+     *                              @OA\Property(property="nom_secteur", type="string"),
      *                              @OA\Property(property="responsable", type="integer"),
-     *                              @OA\Property(property="contact", type="string"),
+     *                              @OA\Property(property="contact_secteur", type="string"),
+     *                              @OA\Property(property="created_at", type="string"),
      *                              @OA\Property(property="update_at", type="string"),
      *                              @OA\Property(property="delete_at", type="string"),
-     *                              @OA\Property(property="commune_name", type="string"),
      *                          ),
      *                      ),
      *                  ),
@@ -329,8 +329,8 @@ class SecteurController extends Controller
      *      description="DELETE SECTEUR BY ID",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
-     *          name="page",
-     *          in="query",
+     *          name="id",
+     *          in="path",
      *          required=true,
      *          @OA\Schema(
      *              type="integer"
@@ -363,7 +363,7 @@ class SecteurController extends Controller
      */
     public function destroy($id,Secteur $secteur): JsonResponse
     {
-        $response = $secteur->updateSecteurDetails($id);
+        $response = $secteur->deleteSecteur($id);
         return $this->verifyStatus($response);
     }
 }
