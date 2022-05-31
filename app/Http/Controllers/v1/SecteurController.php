@@ -72,13 +72,8 @@ class SecteurController extends Controller
      */
     public function index(Secteur $secteur): JsonResponse
     {
-        $secteur = $secteur->getAllSecteur();
-        return response()->json(
-            $secteur,
-            200,
-            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            $this->format
-        );
+        $response = $secteur->getAllSecteur();
+        return $this->verifyStatus($response);
     }
 
     /**
@@ -155,13 +150,8 @@ class SecteurController extends Controller
      */
     public function store(Request $request,  Secteur $secteur): JsonResponse
     {
-        $secteur = $secteur->createSecteur($request);
-        return response()->json(
-            $secteur,
-            200,
-            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            $this->format
-        );
+        $response = $secteur->createSecteur($request);
+        return $this->verifyStatus($response);
     }
 
 
@@ -237,13 +227,8 @@ class SecteurController extends Controller
      */
     public function show($id, Secteur $secteur): JsonResponse
     {
-        $secteur = $secteur->getSecteurById($id);
-        return response()->json(
-            $secteur,
-            200,
-            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            $this->format
-        );
+        $response = $secteur->getSecteurById($id);
+        return $this->verifyStatus($response);
     }
 
 
@@ -322,13 +307,8 @@ class SecteurController extends Controller
      */
     public function update(Request $request, Secteur $secteur): JsonResponse
     {
-        $secteur = $secteur->updateSecteurDetails($request);
-        return response()->json(
-            $secteur,
-            200,
-            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            $this->format
-        );
+        $response = $secteur->updateSecteurDetails($request);
+        return $this->verifyStatus($response);
     }
 
 
@@ -383,12 +363,7 @@ class SecteurController extends Controller
      */
     public function destroy($id,Secteur $secteur): JsonResponse
     {
-        $secteur = $secteur->updateSecteurDetails($id);
-        return response()->json(
-            $secteur,
-            200,
-            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            $this->format
-        );
+        $response = $secteur->updateSecteurDetails($id);
+        return $this->verifyStatus($response);
     }
 }

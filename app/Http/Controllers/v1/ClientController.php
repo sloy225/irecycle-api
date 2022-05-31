@@ -75,7 +75,8 @@ class ClientController extends Controller
      */
     public function index(Client $client): JsonResponse
     {
-        $client = $client->getAllClient();
+        $response = $client->getAllClient();
+        $client = $this->verifyStatus($response);
         return response()->json(
             $client,
             200,
@@ -163,7 +164,8 @@ class ClientController extends Controller
      */
     public function store(Request $request,  Client $client): JsonResponse
     {
-        $client = $client->createClient($request);
+        $response = $client->createClient($request);
+        $client = $this->verifyStatus($response);
         return response()->json(
             $client,
             200,
@@ -248,7 +250,8 @@ class ClientController extends Controller
      */
     public function show($id, Client $client): JsonResponse
     {
-        $client = $client->getClientById($id);
+        $response = $client->getClientById($id);
+        $client = $this->verifyStatus($response);
         return response()->json(
             $client,
             200,
@@ -338,7 +341,8 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client): JsonResponse
     {
-        $client = $client->updateClientDetails($request);
+        $response = $client->updateClientDetails($request);
+        $client = $this->verifyStatus($response);
         return response()->json(
             $client,
             200,
@@ -399,7 +403,8 @@ class ClientController extends Controller
      */
     public function destroy($id,Client $client): JsonResponse
     {
-        $client = $client->updateClientDetails($id);
+        $response = $client->updateClientDetails($id);
+        $client = $this->verifyStatus($response);
         return response()->json(
             $client,
             200,

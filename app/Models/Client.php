@@ -25,7 +25,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    private function error($status = false, $object = []): array
+    private function success($status = false, $object = []): array
     {
         return [
             'status' => $status,
@@ -33,7 +33,7 @@ class Client extends Model
         ];
     }
 
-    private function success($status = false,  $error = null): array
+    private function error($status = false,  $error = null): array
     {
         return [
             'status' => $status,

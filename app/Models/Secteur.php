@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use stdClass;
 
 /**
  * @method static paginate(int $int)
@@ -20,7 +21,7 @@ use App\Http\Controllers\Controller;
 class Secteur extends Model
 {
     use HasFactory;
-    private function error($status = false, $object = []): array
+    private function success($status = false, $object = []): array
     {
         return [
             'status' => $status,
@@ -28,7 +29,7 @@ class Secteur extends Model
         ];
     }
 
-    private function success($status = false,  $error = null): array
+    private function error($status = false,  $error = null): array
     {
         return [
             'status' => $status,

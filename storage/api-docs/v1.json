@@ -14,12 +14,12 @@
     },
     "servers": [
         {
-            "url": "http://irecycle-api.test/api/v1",
+            "url": "http://irecycle-api.test/api",
             "description": "I-Recycle Service Server"
         }
     ],
     "paths": {
-        "/authenticate": {
+        "/v1/authenticate": {
             "post": {
                 "tags": [
                     "OAuth"
@@ -51,7 +51,7 @@
                 }
             }
         },
-        "/register": {
+        "/v1/register": {
             "post": {
                 "tags": [
                     "OAuth"

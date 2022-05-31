@@ -102,7 +102,7 @@ class Controller extends BaseController
 
     public function verifyStatus($response): JsonResponse
     {
-        return $response->status ? $this->sendResponse($response) : $this->sendError($response);
+        return $response['status'] ? $this->sendResponse($response['object']) : $this->sendError($response['error']);
     }
 
     /**
