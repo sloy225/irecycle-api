@@ -18,12 +18,12 @@ class CommuneController extends Controller
      */
 
     /**
-     * @OA\Get (
+     * @OA\Get(
      *      path="/v1/commune",
      *      operationId="getAllCommune",
-     *      tags={"Commune"},
-     *      summary="GET Commune",
-     *      description="GET Commune",
+     *      tags={"COMMUNE"},
+     *      summary="GET COMMUNE",
+     *      description="GET COMMUNE",
      *      security={{"bearerAuth":{}}},
      *     @OA\Response(
      *          response=200,
@@ -31,23 +31,16 @@ class CommuneController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="commune_nom", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="update_at", type="string"),
-     *                              @OA\Property(property="delete_at", type="string"),
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="commune_nom", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="update_at", type="string"),
+     *                      @OA\Property(property="delete_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -89,43 +82,36 @@ class CommuneController extends Controller
      */
 
     /**
-     * @OA\Post(
+     * @OA\Post (
      *      path="/v1/commune",
      *      operationId="createCommune",
-     *      tags={"Commune"},
-     *      summary="CREATE Commune",
-     *      description="CREATE Commune",
+     *      tags={"COMMUNE"},
+     *      summary="CREATE COMMUNE",
+     *      description="CREATE COMMUNE",
      *      security={{"bearerAuth":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          description="Transmettre les informations",
-     *              @OA\JsonContent(
-     *                  @OA\Property(property="commune_nom", type="string"),
-     *
+     *          @OA\JsonContent(
+     *              @OA\Property(property="commune_nom", type="string")
+     *          ),
      *      ),
-     *     @OA\Response(
+     *      @OA\Response(
      *          response=200,
      *          description="success",
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="commune_nom", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="update_at", type="string"),
-     *                              @OA\Property(property="delete_at", type="string"),
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="commune_nom", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="update_at", type="string"),
+     *                      @OA\Property(property="delete_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -136,15 +122,15 @@ class CommuneController extends Controller
      *          response=403,
      *          description="Interdit"
      *      ),
-     * @OA\Response(
-     *      response=400,
-     *      description="Mauvaise demande"
-     *   ),
-     * @OA\Response(
-     *      response=404,
-     *      description="pas trouvé"
-     *   ),
-     *  )
+     *      @OA\Response(
+     *          response=400,
+     *          description="Mauvaise demande"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="pas trouvé"
+     *      ),
+     * )
      */
     public function store(Request $request,  Commune $Commune): JsonResponse
     {
@@ -171,9 +157,9 @@ class CommuneController extends Controller
      * @OA\Get(
      *      path="/v1/commune/{id}",
      *      operationId="getCommuneById",
-     *      tags={"Commune"},
-     *      summary="GET Commune BY ID",
-     *      description="GET Commune",
+     *      tags={"COMMUNE"},
+     *      summary="GET COMMUNE BY ID",
+     *      description="GET COMMUNE BY ID",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="id",
@@ -183,29 +169,22 @@ class CommuneController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *     @OA\Response(
+     *      @OA\Response(
      *          response=200,
      *          description="success",
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="commune_nom", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="update_at", type="string"),
-     *                              @OA\Property(property="delete_at", type="string"),,
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="commune_nom", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="update_at", type="string"),
+     *                      @OA\Property(property="delete_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(

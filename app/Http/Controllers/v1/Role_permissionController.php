@@ -99,10 +99,10 @@ class Role_permissionController extends Controller
      *      @OA\RequestBody(
      *          required=true,
      *          description="Transmettre les informations",
-     *              @OA\JsonContent(
-     *                  @OA\Property(property="role_id", type="string"),
-     *                  @OA\Property(property="permission", type="string"),
-     *              ),
+     *          @OA\JsonContent(
+     *              @OA\Property(property="role_id", type="string"),
+     *              @OA\Property(property="permission", type="string"),
+     *          ),
      *      ),
      *     @OA\Response(
      *          response=200,
@@ -113,20 +113,14 @@ class Role_permissionController extends Controller
      *                  property="object",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="role_id", type="string"),
-     *                              @OA\Property(property="permission", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="update_at", type="string"),
-     *                              @OA\Property(property="delete_at", type="string"),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="role_id", type="string"),
+     *                      @OA\Property(property="permission", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="update_at", type="string"),
+     *                      @OA\Property(property="delete_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -272,24 +266,17 @@ class Role_permissionController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="status", type="boolean"),
      *              @OA\Property(
-     *                  property="object",
+     *                  property="data",
      *                  type="array",
      *                  @OA\Items(
-     *                      @OA\Property(
-     *                          property="data",
-     *                          type="array",
-     *                          @OA\Items(
-     *                              @OA\Property(property="id", type="integer"),
-     *                              @OA\Property(property="role_id", type="string"),
-     *                              @OA\Property(property="permission", type="string"),
-     *                              @OA\Property(property="created_at", type="string"),
-     *                              @OA\Property(property="update_at", type="string"),
-     *                              @OA\Property(property="delete_at", type="string"),$Role_permission =
-     *                          ),
-     *                      ),
+     *                      @OA\Property(property="id", type="integer"),
+     *                      @OA\Property(property="role_id", type="string"),
+     *                      @OA\Property(property="permission", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="update_at", type="string"),
+     *                      @OA\Property(property="delete_at", type="string"),
      *                  ),
      *              ),
-     *          @OA\Property(property="error", type="string"),
      *          ),
      *      ),
      *      @OA\Response(
@@ -300,14 +287,14 @@ class Role_permissionController extends Controller
      *          response=403,
      *          description="Interdit"
      *      ),
-     * @OA\Response(
-     *      response=400,
-     *      description="Mauvaise demande"
-     *   ),
-     * @OA\Response(
-     *      response=404,
-     *      description="pas trouvé"
-     *   ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Mauvaise demande"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="pas trouvé"
+     *      ),
      *  )
      */
     public function update(Request $request, Role_permission $Role_permission): JsonResponse
@@ -352,7 +339,7 @@ class Role_permissionController extends Controller
      *          description="Opération éffectuée",
      *          @OA\MediaType(
      *           mediaType="application/json",
-     *      )
+     *          ),
      *      ),
      *      @OA\Response(
      *          response=401,
@@ -362,14 +349,14 @@ class Role_permissionController extends Controller
      *          response=403,
      *          description="Interdit"
      *      ),
-     * @OA\Response(
-     *      response=400,
-     *      description="Mauvaise demande"
-     *   ),
-     * @OA\Response(
-     *      response=404,
-     *      description="pas trouvé"
-     *   ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Mauvaise demande"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="pas trouvé"
+     *      ),
      *  )
      */
     public function destroy($id,Role_permission $Role_permission): JsonResponse
